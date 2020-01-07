@@ -54,7 +54,7 @@ class Maze {
         this.loadmaze();
     }
     loadmaze() {
-        this.loadImage('../goede_maze.jpg', this.drawmaze);
+        this.loadImage('goede_maze.jpg', this.drawmaze);
     }
     drawmaze(img) {
         this.ctx.drawImage(img, 0, 0);
