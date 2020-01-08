@@ -4,7 +4,7 @@ body {
     height: 100%;
     margin: 0px;
     overflow: hidden;
-    display: block;
+    display: block; 
 }
 
 h1 {
@@ -29,7 +29,7 @@ button {
     background-color: transparent;
     border: none;
     font-weight: bold;
-    margin-top: 680px;
-    margin-left: 55px;
+    top: 70%;
     font-family: sans-serif;
+    position: absolute;
 }

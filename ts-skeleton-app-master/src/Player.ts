@@ -9,7 +9,7 @@ class Player {
 
     // Coins
     private coinCounter: number;
-    private coin1: any;
+    private coin: any[];
 
     constructor(
         xPos: number,
@@ -24,13 +24,15 @@ class Player {
         this.yVel = yVel;
         this.keyboardListener = keyboardListener;
         this.collision = 0;
-        this.coin1 = [this.rand(2,630,22), this.rand(2,645,22)]
+        this.coin = [];
+        this.coin.push()
+        for (let i = 0; i < 5; i++) {
+            this.coin.push(this.rand(2, 645, 22), this.rand(2, 645, 22))    //630,645
+            // console.log(this.coin);
+        }
+        // console.log(this.coin)
         this.coinCounter = 0;
-
-
     }
-
-
 
     public move(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
         if (this.keyboardListener.isKeyDown(KeyboardListener.KEY_RIGHT) && this.xPos !== 702) {
@@ -79,9 +81,10 @@ class Player {
         ctx.rect(this.xPos, this.yPos, x, y);
         ctx.closePath();
         ctx.fill();
-        console.log(this.xPos, this.yPos)
+        // console.log(this.xPos, this.yPos)
         this.coins(ctx);
         this.endCheck();
+
     }
 
     public checkCollision(ctx: CanvasRenderingContext2D) {
@@ -104,42 +107,71 @@ class Player {
      * Coins
      */
     public coins(ctx: CanvasRenderingContext2D) {
-        let x = this.coin1[0];
-        let y = this.coin1[1];
+
+        let x: any[] = []
+        for (let i = 0; i < this.coin.length; i += 2) {
+            x.push(this.coin[i])
+        }
+        let y: any[] = []
+        for (let i = 1; i < this.coin.length; i += 2) {
+            y.push(this.coin[i])
+        }
 
         ctx.fillStyle = 'gold'
-        ctx.beginPath();
-        ctx.rect(this.coin1[0], this.coin1[1], 15,15)
-        ctx.closePath();
-        ctx.fill();
-        if (this.xPos >= x-4 && this.xPos <= x+4 && this.yPos >= y-4 && this.yPos <= y+4) {
-
-            // document.getElementById('question').innerHTML = `Vraag: y/n?`
-            // document.getElementById('answers').innerHTML = `
-            // <button id="option1">Y</button>
-            // <button id="option2">N</button>`
-            // document.getElementById('option1').onclick = function () {
-            // }
-
-            this.coin1.pop();
-            ctx.clearRect(x, y, 15, 15)
-            ctx.fillStyle = 'purple';
-            this.rect(x, y, 15, 15, ctx);
-            if (this.coinCounter < 100) {
-
-                this.coinCounter += 100;
+        for (let i = 0; i < x.length; i++) {
+            ctx.beginPath();
+            
+            ctx.rect(x[i], y[i], 15, 15)
+            ctx.closePath();
+            ctx.fill();
+        }
+        for (let i = 0; i < x.length; i++) {
+            if (this.xPos >= x[i] - 8 && this.xPos <= x[i] + 8 && this.yPos >= y[i] - 8 && this.yPos <= y[i] + 8) {
+                console.log(this.coin)
+                let indexX = this.coin.indexOf(x[i])
+                let indexY = indexX + 1
+                
+                if (indexX % 2 !== 0 && indexX !== 0) {
+                    indexX = this.coin.indexOf(x[i],x[i]+1)
+                    indexY = indexX + 1;
+                    console.log('testest')
+                }
+                
+                console.log(indexX, indexY)
+                this.coin.splice(indexX, 1)
+                this.coin.splice(indexY - 1, 1)
+                ctx.clearRect(x[i], y[i], 15, 15)
+                ctx.fillStyle = 'purple';
+                this.rect(x[i], y[i], 15, 15, ctx);
+                console.log(this.coin);
+                // console.log(x,y)
+                this.coinCounter += 1;
+                document.getElementById('question').innerHTML = `Vraag: y/n?`
+                document.getElementById('answers').innerHTML = `
+                <button id="option1">Y</button>
+                <button id="option2">N</button>`
+                document.getElementById('option1').onclick = function () {
+                }
             }
-            console.log(this.coinCounter);
-
-
         }
-        else {
-            document.getElementById('question').innerHTML = ``
-            document.getElementById('answers').innerHTML = ``
-        }
-
         document.getElementById('Score').innerHTML = `Coins: ${this.coinCounter}`
         // document.body.innerHTML =  `${this.coinCounter}` ;
+        // if (this.xPos >= x-4 && this.xPos <= x+4 && this.yPos >= y-4 && this.yPos <= y+4) {
+
+
+        //     if (this.coinCounter < 1) {
+
+        //     }
+
+        // console.log(this.coinCounter);
+
+
+        // }
+        // else {
+        //     document.getElementById('question').innerHTML = ``
+        //     document.getElementById('answers').innerHTML = ``
+        // }
+
     }
     /**
      * endCheck
@@ -168,6 +200,7 @@ class Player {
         rand = Math.floor(rand);
         rand *= step;
         rand += min;
+        // console.log(rand)
         return rand;
     }
 }
