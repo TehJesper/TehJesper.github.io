@@ -1,0 +1,35 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+    display: block; 
+}
+
+h1 {
+    text-align: center;
+    font-size: 100px;
+    margin-top: 200px;
+    color: red;
+    font-weight: bold;
+}
+
+body {
+    background-image: url("../assets/final-bg-hackerman.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button {
+    text-align: center;
+    width: 100%;
+    font-size: 100px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    top: 70%;
+    font-family: sans-serif;
+    position: absolute;
+}

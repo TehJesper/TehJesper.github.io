@@ -1,0 +1,38 @@
+html {
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    margin: 0.2em 0px;
+    font-family: 'Real-Brush.otf';
+    font-size: 150px;
+    color: red;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    color: red;
+}
+
+p {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: red;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 60px;
+    text-align: center;
+    width: 100%;
+}
+
+@font-face {
+    font-family: 'Real-Brush.otf';
+    src: url('../assets/fonts/Real-Brush.otf')
+}
