@@ -2,41 +2,51 @@
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Canvas Maze Game</title>
-  <style>
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      margin: 0px;
-      overflow: hidden;
-    }
-
-    body {
-      display: grid;
-      grid-template-columns: 50% 50%;
-    }
-  </style>
+    <iframe style="display: none;" width="560" height="315" src="https://www.youtube.com/embed/K-ZyNoe03VU?rel=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    <meta charset="UTF-8" />
+    <title>Canvas Maze Game</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            overflow: hidden;
+            font-size: 1vw;
+            color: black;
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+        }
+        
+        body {
+            display: flex;
+            background-image: url('pattern.jpg');
+        }
+        
+        #time {
+            font-size: 40px;
+            top: 3px;
+            right: 7px;
+            position: fixed;
+        }
+    </style>
 </head>
 <!-- <body style="background-color: #f00"> -->
 
 <body>
-  <div class="canvas">
-    <canvas id="canvas" width="100%" height="100%"></canvas>
-  </div>`
-
-  <div id="text">
-    <h1 id="Score"></h1>
-    <h1 id='question'></h1>
-    <div id="answers">
+    <div class="canvas">
+        <canvas id="canvas" width="100%" height="100%"></canvas>
     </div>
-  </div>
 
-  <!-- add all js files needed -->
-  <script src="./build/app.js"></script>
+    <div id="text">
+        <h1 id="Score"></h1>
+        <h1 id='question'></h1>
+        <div id="answers">
+        </div>
+    </div>
 
-
+    <!-- add all js files needed -->
+    <script src="./build/app.js"></script>
+    <div><span id='time'>05:00</span></div>
 
 </body>
 

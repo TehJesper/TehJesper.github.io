@@ -5,9 +5,6 @@ class Maze {
     private readonly canvas: HTMLCanvasElement;
     private readonly ctx: CanvasRenderingContext2D;
 
-    private collision: number;
-
-    // private player: Player;
     private keyboardListener: KeyboardListener;
     private levelScreen: LevelScreen;
 
@@ -19,9 +16,9 @@ class Maze {
 
         this.keyboardListener = new KeyboardListener();
         this.levelScreen = new LevelScreen(this.canvas, this.ctx, this.keyboardListener)
-      
-        this.loop();
 
+        this.loop();
+        this.levelScreen.startTimer()
     }
     public loop() {
         this.loadmaze();

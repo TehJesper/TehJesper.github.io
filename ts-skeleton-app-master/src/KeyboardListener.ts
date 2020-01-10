@@ -19,6 +19,16 @@ class KeyboardListener {
     public static readonly KEY_RIGHT = 39;
     public static readonly KEY_DOWN = 40;
     public static readonly KEY_S = 83;
+    public static readonly KEY_0 = 48;
+    public static readonly KEY_1 = 49;
+    public static readonly KEY_2 = 50;
+    public static readonly KEY_3 = 51;
+    public static readonly KEY_4 = 52;
+    public static readonly KEY_5 = 53;
+    public static readonly KEY_6 = 54;
+    public static readonly KEY_7 = 55;
+    public static readonly KEY_8 = 56;
+    public static readonly KEY_9 = 57;
 
     // Array that holds the state of all keys
     private keyCodeStates: boolean[];

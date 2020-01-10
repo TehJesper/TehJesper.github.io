@@ -10,13 +10,20 @@
 </head>
 
 <body>
-    <h1>Jouw score is: 967 punten!</h1>
-    <h2 style="text-align: center; font-size: 40px;">1. Pietje: 957 punten<br> 2. Kees: 896 punten<br> 3. Kim: 854 punten
+    <iframe style="display: none;" width="560" height="315" src="https://www.youtube.com/embed/K-ZyNoe03VU?rel=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    <h1 id="eindscore"></h1>
+    <h2 id='highscores' style="text-align: center; font-size: 40px;">
     </h2>
     <button type="submit" class="scoretoevoegen" onclick="window.location.href='fillinscore.html'">Score
         Toevoegen</button>
 </body>
-<button type="submit" class="overslaan" id="overslaan" onclick="window.location.href='gamewin_fake.html'">Overslaan</button>
+<button type="submit" class="overslaan" id="overslaan" onclick="window.location.href='gamewin.html'">Overslaan</button>
+<script>
+    let x = localStorage.getItem('Eindscore')
+    console.log(x)
+    document.getElementById('eindscore').innerHTML = `Jouw score is: ${x}!`;
+    document.getElementById('highscores').innerHTML = `1. Pietje: ${x - 23} punten<br>2. Kees: ${x - 37} punten<br>3. Kim ${x - 59} punten`;
+</script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@ html {
 
 h1 {
     text-align: center;
+    margin: 0.2em 0px;
     font-family: 'Real-Brush.otf';
     font-size: 150px;
     color: red;
@@ -27,7 +28,8 @@ button {
     border: none;
     color: red;
     font-size: 60px;
-    margin-left: 650px;
+    text-align: center;
+    width: 100%;
 }
 
 @font-face {
