@@ -45,7 +45,7 @@ body {
 .topnav {
     width: 100%;
     background-color: #3b5998;
-    overflow: auto;
+    overflow: hidden;
     height: 73px;
     border-bottom: 2px solid black;
 }
